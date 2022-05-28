@@ -19,14 +19,15 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri uri =  Uri.parse("tel:+923001234567");
-                Intent intent = new Intent(Intent.ACTION_DIAL, uri);
-                startActivity(intent);
+                openWebPage("https://github.com");
             }
         });
 
     }
-    public void CallingIntent(View view) {
-
+    public void openWebPage(String url) {
+        Uri webpage = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+        startActivity(intent);
     }
+
 }
