@@ -22,12 +22,15 @@ public class MainActivity extends AppCompatActivity {
         editText=findViewById(R.id.editText);
         listView=findViewById(R.id.listView);
         ArrayList<String> friendList=new ArrayList<String>();
-        friendList.add("usama");
-        friendList.add("ahmad");
-        friendList.add("osama");
         ArrayAdapter<String>arrayAdapter=new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1,friendList);
         listView.setAdapter(arrayAdapter);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                friendList.add(editText.getText().toString());
+                arrayAdapter.notifyDataSetChanged();
+            }});
     }
 
     }
